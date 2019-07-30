@@ -1,0 +1,2 @@
+terraform_kinesis/.terraform/
+terraform_vpc_producer/.terraform/

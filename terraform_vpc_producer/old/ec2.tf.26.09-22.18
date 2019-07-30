@@ -1,0 +1,25 @@
+provider "aws" {
+  access_key = "AKIAJHBBU5KDBVL26TBA"
+  secret_key = "E3L4+tuTxQKdf+iD3wbWHg6FsHxB+9169ZT7Q4NL"
+  region     = "us-east-1"
+}
+
+resource "aws_instance" "example" {
+  ami           = "ami-2757f631"
+  instance_type = "t2.micro"
+}
+
+resource "aws_vpc" "main" {
+  cidr_block = "10.135.0.0/16"
+  tags {
+    Name = "main"
+  }
+}
+
+resource "aws_subnet" "subnet1" {
+  vpc_id = "${aws_vpc.main.id}"
+  cidr_block = "10.135.0.0/22"
+  tags {
+    Name = "subnet1"
+  }
+}

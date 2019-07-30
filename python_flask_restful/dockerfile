@@ -1,0 +1,11 @@
+FROM python:2.7
+COPY . /app
+WORKDIR /app
+RUN pip install -r requirements.txt
+ENV ACCESS_KEY=""
+ENV SECRET_KEY=""
+ENV REGION="us-east-1"
+ENV STREAM_NAME=""
+#ENV FLASK_ENV=development
+ENTRYPOINT ["python"]
+CMD ["app.py"]
